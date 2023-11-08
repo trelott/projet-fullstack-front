@@ -1,4 +1,4 @@
-import {VaccinationCenter} from "../vaccination-center-list/vaccination-center";
+import {VaccinationCenter} from "./vaccination-center";
 
 export interface User {
   id: number;

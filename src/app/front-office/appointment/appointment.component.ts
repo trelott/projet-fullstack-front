@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {VaccinationCenter} from "../vaccination-center-list/vaccination-center";
-import {AppointmentService} from "../appointment.service";
-import {Appointement} from "./appointement";
+import {VaccinationCenter} from "../../interfaces/vaccination-center";
+import {AppointmentService} from "../../services/appointment.service";
+import {Appointement} from "../../interfaces/appointement";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({

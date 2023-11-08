@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {VaccinationCenter} from "./vaccination-center";
-import {VaccinationService} from "../vaccination.service";
+import {VaccinationCenter} from "../../interfaces/vaccination-center";
+import {VaccinationService} from "../../services/vaccination.service";
 
 @Component({
   selector: 'app-vaccination-center-list',
@@ -23,11 +23,6 @@ export class VaccinationCenterListComponent implements OnInit {
 
   public selectCenter(center: VaccinationCenter): void {
     this.selected = center;
-  }
-
-  onDeleted(center: VaccinationCenter) {
-    delete this.selected;
-    this.centers!.splice(this.centers!.indexOf(center), 1);
   }
 
   public updateCenter() {
