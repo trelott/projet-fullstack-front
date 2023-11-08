@@ -1,0 +1,35 @@
+app-vaccination-center {
+  display: flex;
+  flex-direction: column;
+}
+
+#detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#center-list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+input {
+  width: 100%;
+}
+
+#element {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+
+}
+
+app-appointment {
+  margin-top: 10px;
+  width: 100%;
+}

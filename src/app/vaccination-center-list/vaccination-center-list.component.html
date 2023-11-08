@@ -1,0 +1,12 @@
+<div id="center-list">
+  <div id="search">
+    <input [(ngModel)]="selectedCity" (input)="updateCenter()" placeholder="Entrez le nom de votre ville">
+  </div>
+  <div *ngFor="let center of centers" id="element">
+    <div id="detail">
+      <app-vaccination-center [center]="center"></app-vaccination-center>
+      <button (click)="selectCenter(center)">Selectionner</button>
+    </div>
+    <app-appointment *ngIf="center==selected" [center]="selected"></app-appointment>
+  </div>
+</div>

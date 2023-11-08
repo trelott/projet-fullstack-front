@@ -1,0 +1,13 @@
+<div *ngIf="center" id="appointmentForm">
+  <form [formGroup]="appointmentForm">
+    <input id="name" type="text" formControlName="name" placeholder="prénom">
+    <input id="surname" type="text" formControlName="surname" placeholder="nom">
+    <input id="mail" type="email" formControlName="mail" placeholder="email">
+    <input id="phone"  type="tel" formControlName="phone" placeholder="téléphone">
+    <input id="date" type="date" formControlName="date" placeholder="date">
+  </form>
+
+  <button (click)="confirmAppointment()">Valider le rendez-vous</button>
+  <div class="message" id="confirmationMessage" *ngIf="showConfirmation">Le rendez-vous est confirmé!</div>
+  <div class="message" id="errorMessage" *ngIf="showError">Le formulaire comporte des erreurs, veuillez remplir correctement tous les champs.</div>
+</div>

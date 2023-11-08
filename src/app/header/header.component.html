@@ -1,0 +1,10 @@
+<header>
+  <h1>Vaccination</h1>
+  <div>
+    <button *ngIf="!loggedUser" (click)="goToBack()">Se connecter</button>
+    <div *ngIf="loggedUser" id="loggedUserSection">
+      <p>{{loggedUser.firstname}} {{loggedUser.lastname}}</p>
+      <button (click)="logout()">Se deconnecter</button>
+    </div>
+  </div>
+</header>

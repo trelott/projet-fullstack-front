@@ -1,0 +1,29 @@
+/* Style the header */
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: whitesmoke;
+  color: #3498db;
+}
+
+button:hover{
+  background-color: lightgrey;
+}
+
+#loggedUserSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#loggedUserSection > p {
+  margin-right: 10px;
+}
