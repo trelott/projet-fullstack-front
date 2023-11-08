@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { VaccinationCenterComponent } from './vaccination-center/vaccination-center.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { VaccinationCenterListComponent } from './vaccination-center-list/vaccination-center-list.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +16,7 @@ import { MenuCentresComponent } from './menu-centres/menu-centres.component';
 import { MenuMonCentreComponent } from './menu-mon-centre/menu-mon-centre.component';
 import { MenuPlanningComponent } from './menu-planning/menu-planning.component';
 import { MenuConfigComponent } from './menu-config/menu-config.component';
+import {TokenInterceptorService} from "./interceptors/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,13 @@ import { MenuConfigComponent } from './menu-config/menu-config.component';
         FormsModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

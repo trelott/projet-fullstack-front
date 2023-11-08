@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../auth/user";
 import {Router} from "@angular/router";
 import {AuthService} from "../auth.service";
+import {VaccinationService} from "../vaccination.service";
 
 @Component({
   selector: 'app-back-office',
@@ -18,6 +19,7 @@ export class BackOfficeComponent implements OnInit{
   constructor(
     private router: Router,
     private authService: AuthService,
+    private centerService: VaccinationService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class BackOfficeComponent implements OnInit{
       this.loggedUser = this.authService.getUserInfo(token || '');
     }
     else this.authService.logout();
-    console.debug(this.loggedUser?.role);
+    this.centerService.getAllVaccinationCenter().subscribe();
   }
 
   setSelectedMenu(newSelectedMenu: string) {

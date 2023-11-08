@@ -38,7 +38,8 @@ export class AuthService {
   }
 
   getStoredToken (){
-    return localStorage.getItem('user_token')
+    const token = localStorage.getItem('user_token');
+    return token?.slice(1, token.length-1)
   }
 
   isTokenValid(token: string) {
