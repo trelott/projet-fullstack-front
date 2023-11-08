@@ -5,13 +5,15 @@
       <button>Nouveau centre</button>
     </div>
     <div id="menu-centres-list-elements">
-      <div *ngFor="let center of centerList">
+      <div *ngFor="let center of centerList" id="menu-centres-list-element">
         <div id="center-details">
           <p>{{center.name}}</p>
           <p>{{center.address}}, {{center.city}} {{center.city_code}}</p>
         </div>
-        <button>Modifier</button>
-        <button>Gérer les membres</button>
+        <div id="center-management-button">
+          <button>Modifier</button>
+          <button>Gérer les membres</button>
+        </div>
       </div>
     </div>
   </div>
