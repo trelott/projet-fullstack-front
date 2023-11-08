@@ -12,6 +12,10 @@ import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
+import { MenuCentresComponent } from './menu-centres/menu-centres.component';
+import { MenuMonCentreComponent } from './menu-mon-centre/menu-mon-centre.component';
+import { MenuPlanningComponent } from './menu-planning/menu-planning.component';
+import { MenuConfigComponent } from './menu-config/menu-config.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { BackOfficeComponent } from './back-office/back-office.component';
     AuthComponent,
     HeaderComponent,
     FrontOfficeComponent,
-    BackOfficeComponent
+    BackOfficeComponent,
+    MenuCentresComponent,
+    MenuMonCentreComponent,
+    MenuPlanningComponent,
+    MenuConfigComponent
   ],
     imports: [
         BrowserModule,

@@ -13,6 +13,7 @@ import {AuthService} from "../auth.service";
 })
 export class BackOfficeComponent implements OnInit{
   loggedUser?: User;
+  selectedMenu?: string;
 
   constructor(
     private router: Router,
@@ -25,6 +26,11 @@ export class BackOfficeComponent implements OnInit{
       this.loggedUser = this.authService.getUserInfo(token || '');
     }
     else this.authService.logout();
+    console.debug(this.loggedUser?.role);
+  }
+
+  setSelectedMenu(newSelectedMenu: string) {
+    this.selectedMenu = newSelectedMenu;
   }
 
 }
