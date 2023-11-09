@@ -1,19 +1,25 @@
 <div id="menu-centres-body">
-  <div id="menu-centres-list" *ngIf="!selectedCenter">
+  <div id="menu-centres-list">
     <div id="menu-centres-list-header">
       <input [(ngModel)]="inputCenterName" (input)="updateCenter()" placeholder="Entrez le nom de votre ville">
-      <button>Nouveau centre</button>
+      <button (click)="setShowCreateCenter(true)">Nouveau centre</button>
     </div>
+    <app-create-centre (postSuccess)="setShowCreateCenter(false); updateCenter()" *ngIf="showCreateCenter"></app-create-centre>
     <div id="menu-centres-list-elements">
+      <p *ngIf="showDeleteError">{{deleteErrorMessage}}</p>
       <div *ngFor="let center of centerList" id="menu-centres-list-element">
-        <div id="center-details">
-          <p>{{center.name}}</p>
-          <p>{{center.address}}, {{center.city}} {{center.city_code}}</p>
+        <div *ngIf="selectedCenter != center">
+          <div id="center-details">
+            <p>{{center.name}}</p>
+            <p>{{center.address}}, {{center.city}} {{center.city_code}}</p>
+          </div>
+          <div id="center-management-button">
+            <button (click)="setSelectedCenter(center)">Modifier</button>
+            <button>Gérer les membres</button>
+            <button (click)="deleteCenter(center)">Supprimer</button>
+          </div>
         </div>
-        <div id="center-management-button">
-          <button>Modifier</button>
-          <button>Gérer les membres</button>
-        </div>
+        <app-edit-centre *ngIf="center==selectedCenter" [center]="center" (patchSuccess)="setSelectedCenter(undefined)"></app-edit-centre>
       </div>
     </div>
   </div>
