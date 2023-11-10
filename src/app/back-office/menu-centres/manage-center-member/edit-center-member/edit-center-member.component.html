@@ -1,8 +1,14 @@
 <div id="edit-center-member-body">
-  <p>edit-center-member works!</p>
+  <form [formGroup]="editCenterMemberForm">
+    <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
+    <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
+    <input id="role" type="text" formControlName="role" placeholder="rôle">
+    <input id="center" type="text" formControlName="center" placeholder="centre">
+  </form>
   <div id="member-edit-button">
     <button (click)="emitEditMemberDone(true)">Annuler</button>
-    <button>Modifier</button>
+    <button (click)="modifyCenterMember()">Modifier</button>
   </div>
 </div>
 

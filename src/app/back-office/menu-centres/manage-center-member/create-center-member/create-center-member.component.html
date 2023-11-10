@@ -1,5 +1,11 @@
 <div id="create-center-member-body">
-  <p>create-center-member works!</p>
+  <form [formGroup]="createCenterMemberForm">
+    <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
+    <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
+    <input id="role" type="text" formControlName="role" placeholder="rôle">
+    <input id="center" type="text" formControlName="center" placeholder="centre">
+  </form>
   <div id="create-center-member-button">
     <button (click)="emitCreateDone(true)">Annuler</button>
     <button (click)="createCenterMember()">Ajouter</button>
