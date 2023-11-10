@@ -1,0 +1,16 @@
+#create-center-member-body {
+  border: 1px dotted black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#create-center-member-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#create-center-member-button button {
+  width: 49%;
+}

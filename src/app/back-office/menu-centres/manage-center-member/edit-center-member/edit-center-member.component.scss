@@ -1,0 +1,16 @@
+#edit-center-member-body {
+  padding: 10px;
+  border: 1px dotted black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#member-edit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#member-edit-button button{
+  width: 49%;
+}

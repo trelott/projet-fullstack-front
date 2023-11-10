@@ -8,7 +8,8 @@ import {VaccinationService} from "../../services/vaccination.service";
   styleUrls: ['./menu-centres.component.scss']
 })
 export class MenuCentresComponent implements OnInit{
-  selectedCenter?: VaccinationCenter;
+  centerToModify?: VaccinationCenter;
+  modifyCenterMember?: VaccinationCenter;
   centerList?: VaccinationCenter[];
   inputCenterName: string = '';
   showCreateCenter: boolean = false;
@@ -27,10 +28,14 @@ export class MenuCentresComponent implements OnInit{
     )
   }
 
-  setSelectedCenter(center?: VaccinationCenter) {
-    console.debug('Set center à:', center);
-    this.selectedCenter = center;
-    console.debug('selected center est maintenant:', this.selectedCenter);
+  setCenterToModify(center?: VaccinationCenter) {
+    this.modifyCenterMember = undefined;
+    this.centerToModify = center;
+  }
+
+  setModifyCenterMember(center?: VaccinationCenter) {
+    this.centerToModify = undefined;
+    this.modifyCenterMember = center;
   }
 
   setShowCreateCenter(newValue: boolean) {

@@ -5,6 +5,9 @@
     <input id="city" type="text" formControlName="city" placeholder="ville">
     <input id="city_code" type="text" formControlName="city_code" placeholder="code postale">
   </form>
-  <button (click)="modifyCenter()">Modifier</button>
+  <div id="center-edit-button">
+    <button (click)="cancelModification()">Annuler</button>
+    <button (click)="modifyCenter()">Modifier</button>
+  </div>
   <p *ngIf="showErrorMessage">{{patchErrorMessage}}</p>
 </div>

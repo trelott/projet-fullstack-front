@@ -19,6 +19,9 @@ import { MenuConfigComponent } from './back-office/menu-config/menu-config.compo
 import {TokenInterceptorService} from "./interceptors/token-interceptor.service";
 import { EditCentreComponent } from './back-office/menu-centres/edit-centre/edit-centre.component';
 import { CreateCentreComponent } from './back-office/menu-centres/create-centre/create-centre.component';
+import { ManageCenterMemberComponent } from './back-office/menu-centres/manage-center-member/manage-center-member.component';
+import { EditCenterMemberComponent } from './back-office/menu-centres/manage-center-member/edit-center-member/edit-center-member.component';
+import { CreateCenterMemberComponent } from './back-office/menu-centres/manage-center-member/create-center-member/create-center-member.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { CreateCentreComponent } from './back-office/menu-centres/create-centre/
     MenuPlanningComponent,
     MenuConfigComponent,
     EditCentreComponent,
-    CreateCentreComponent
+    CreateCentreComponent,
+    ManageCenterMemberComponent,
+    EditCenterMemberComponent,
+    CreateCenterMemberComponent
   ],
     imports: [
         BrowserModule,

@@ -46,4 +46,7 @@ export class EditCentreComponent implements OnInit{
   }
 
 
+  cancelModification() {
+    this.patchSuccess.emit(true);
+  }
 }
