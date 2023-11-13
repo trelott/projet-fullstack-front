@@ -23,6 +23,6 @@
       <button (click)="setAddMember(true)">Ajouter un membre</button>
     </div>
   </div>
-  <app-edit-center-member *ngIf="memberToModify" [member]="memberToModify" (editMemberDone)="setMemberToModify(undefined)"></app-edit-center-member>
+  <app-edit-center-member *ngIf="memberToModify" [member]="memberToModify" [possibleRole]="possibleRole" [allCenters]="allCenters" (editMemberDone)="setMemberToModify(undefined)"></app-edit-center-member>
   <app-create-center-member *ngIf="addMember" (createDone)="setAddMember(false)"></app-create-center-member>
 </div>

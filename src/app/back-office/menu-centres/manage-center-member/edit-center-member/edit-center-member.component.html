@@ -3,12 +3,21 @@
     <input id="email" type="text" formControlName="email" placeholder="email">
     <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
     <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
-    <input id="role" type="text" formControlName="role" placeholder="rôle">
-    <input id="center" type="text" formControlName="center" placeholder="centre">
+    <select id="role" formControlName="role">
+      <option *ngFor="let role of possibleRole" [value]="member.role">
+        {{role}}
+      </option>
+    </select>
+    <select id="center" formControlName="center">
+      <option *ngFor="let selectCenter of allCenters" [value]="member.center">
+        {{selectCenter.name}}
+      </option>
+    </select>
   </form>
   <div id="member-edit-button">
     <button (click)="emitEditMemberDone(true)">Annuler</button>
     <button (click)="modifyCenterMember()">Modifier</button>
   </div>
+  <p *ngIf="showEditError">{{editErrorMessage}}</p>
 </div>
 

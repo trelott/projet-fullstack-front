@@ -10,7 +10,7 @@ import {VaccinationService} from "../../services/vaccination.service";
 export class MenuCentresComponent implements OnInit{
   centerToModify?: VaccinationCenter;
   modifyCenterMember?: VaccinationCenter;
-  centerList?: VaccinationCenter[];
+  centerList: VaccinationCenter[] = [];
   inputCenterName: string = '';
   showCreateCenter: boolean = false;
   showDeleteError: boolean = false;

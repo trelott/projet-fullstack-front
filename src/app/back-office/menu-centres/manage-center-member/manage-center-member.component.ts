@@ -10,6 +10,7 @@ import {UserInfoService} from "../../../services/user-info.service";
 })
 export class ManageCenterMemberComponent implements OnInit{
   @Input() center!: VaccinationCenter;
+  @Input() allCenters: VaccinationCenter[] = [];
   @Output() modificationDone: EventEmitter<boolean> = new EventEmitter<boolean>();
   centerMember?: User[];
   possibleRole: string[] = ['USER'];

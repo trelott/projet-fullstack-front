@@ -20,7 +20,7 @@
           </div>
         </div>
         <app-edit-centre *ngIf="center==centerToModify" [center]="center" (patchSuccess)="setCenterToModify(undefined)"></app-edit-centre>
-        <app-manage-center-member *ngIf="center==modifyCenterMember" [center]="center" (modificationDone)="setModifyCenterMember(undefined)" [maxPossibleRole]="'ADMIN'"></app-manage-center-member>
+        <app-manage-center-member *ngIf="center==modifyCenterMember" [center]="center" [allCenters]="centerList" (modificationDone)="setModifyCenterMember(undefined)" [maxPossibleRole]="'ADMIN'"></app-manage-center-member>
       </div>
     </div>
   </div>

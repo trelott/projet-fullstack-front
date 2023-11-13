@@ -36,7 +36,8 @@ app-vaccination-center-list {
 /* Apply a reset to remove default styling */
 input,
 button,
-textarea {
+textarea,
+select {
   margin: 0;
   padding: 0;
   border: 0;
@@ -46,7 +47,7 @@ textarea {
 }
 
 /* Apply styles to the input field */
-input {
+input, select {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
@@ -58,7 +59,7 @@ input {
 }
 
 /* Style when the input field is focused */
-input:focus {
+input:focus, select:focus {
   border-color: #4CAF50;
 }
 
