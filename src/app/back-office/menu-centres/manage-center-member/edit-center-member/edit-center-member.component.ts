@@ -53,6 +53,5 @@ export class EditCenterMemberComponent implements OnInit {
         this.showEditError = true;
       }
     });
-
   }
 }

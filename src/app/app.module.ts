@@ -22,6 +22,8 @@ import { CreateCentreComponent } from './back-office/menu-centres/create-centre/
 import { ManageCenterMemberComponent } from './back-office/menu-centres/manage-center-member/manage-center-member.component';
 import { EditCenterMemberComponent } from './back-office/menu-centres/manage-center-member/edit-center-member/edit-center-member.component';
 import { CreateCenterMemberComponent } from './back-office/menu-centres/manage-center-member/create-center-member/create-center-member.component';
+import { EditSuperadminComponent } from './back-office/menu-config/edit-superadmin/edit-superadmin.component';
+import { CreateSuperadminComponent } from './back-office/menu-config/create-superadmin/create-superadmin.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CreateCenterMemberComponent } from './back-office/menu-centres/manage-c
     CreateCentreComponent,
     ManageCenterMemberComponent,
     EditCenterMemberComponent,
-    CreateCenterMemberComponent
+    CreateCenterMemberComponent,
+    EditSuperadminComponent,
+    CreateSuperadminComponent
   ],
     imports: [
         BrowserModule,

@@ -6,6 +6,6 @@ export interface User {
   firstname: string;
   lastname: string;
   role: string;
-  center: VaccinationCenter;
+  center?: VaccinationCenter;
   password?: string;
 }

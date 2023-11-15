@@ -1,0 +1,40 @@
+#menu-config-body {
+  padding: 10px;
+
+}
+
+#user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#user-table th, #user-table td{
+  padding: 5px;
+  border: 1px solid black;
+}
+
+#user-table th{
+  text-align: left;
+}
+
+.actions-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.actions-column button{
+  width: 49%;
+}
+
+#manage-center-member-button button {
+  width: 100%;
+}
+
+#manage-center-member-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
