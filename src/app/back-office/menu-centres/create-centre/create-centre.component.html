@@ -1,0 +1,10 @@
+<div id="center-create-form">
+  <form [formGroup]="centerForm">
+    <input id="name" type="text" formControlName="name" placeholder="nom">
+    <input id="address" type="text" formControlName="address" placeholder="adresse">
+    <input id="city" type="text" formControlName="city" placeholder="ville">
+    <input id="city_code" type="text" formControlName="city_code" placeholder="code postale">
+  </form>
+  <button (click)="createCenter()">Ajouter</button>
+  <p *ngIf="showErrorMessage">{{postErrorMessage}}</p>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {VaccinationCenter} from "./vaccination-center-list/vaccination-center";
+import {VaccinationCenter} from "../interfaces/vaccination-center";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -22,4 +22,19 @@ export class VaccinationService {
   }
 
 
+  getVaccinationCenterByName(centerName: string) {
+    return this.httpClient.get<VaccinationCenter[]>("/api/public/center/name/"+centerName);
+  }
+
+  patchCenter(center: VaccinationCenter) {
+    return this.httpClient.patch("/api/superadmin/center/"+center.id, center)
+  }
+
+  createCenter(center: VaccinationCenter) {
+    return this.httpClient.post("/api/superadmin/center", center)
+  }
+
+  deleteCenter(idToDelete: number) {
+    return this.httpClient.delete("/api/superadmin/center/"+idToDelete)
+  }
 }

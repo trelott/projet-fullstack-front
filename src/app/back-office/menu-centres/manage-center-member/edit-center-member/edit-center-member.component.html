@@ -1,0 +1,23 @@
+<div id="edit-center-member-body">
+  <form [formGroup]="editCenterMemberForm">
+    <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="firstname" type="text" formControlName="firstname" placeholder="prénom">
+    <input id="lastname" type="text" formControlName="lastname" placeholder="nom">
+    <select id="role" formControlName="role">
+      <option *ngFor="let role of possibleRole" [ngValue]="role">
+        {{role}}
+      </option>
+    </select>
+    <select id="center" formControlName="center">
+      <option *ngFor="let selectCenter of allCenters" [ngValue]="selectCenter" [selected]="selectCenter == center">
+        {{selectCenter.name}}
+      </option>
+    </select>
+  </form>
+  <div id="member-edit-button">
+    <button (click)="emitEditMemberDone(true)">Annuler</button>
+    <button (click)="modifyCenterMember()">Modifier</button>
+  </div>
+  <p *ngIf="showEditError">{{editErrorMessage}}</p>
+</div>
+

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, map, Observable} from "rxjs";
-import {User} from "./auth/user";
-import {AuthResponse} from "./auth/authResponse";
+import {User} from "../interfaces/user";
+import {AuthResponse} from "../auth/authResponse";
 import {Router} from "@angular/router";
 
 
@@ -18,6 +18,10 @@ export class AuthService {
   ) {
     this.userSubject =  new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
     this.user = this.userSubject.asObservable();
+  }
+
+  register(newMember: User) {
+    return this.httpClient.post<AuthResponse>("/api/admin/register", newMember)
   }
 
   login(username: string, password: string) {
@@ -38,13 +42,15 @@ export class AuthService {
   }
 
   getStoredToken (){
-    return localStorage.getItem('user_token')
+    const token = localStorage.getItem('user_token');
+    return token?.slice(1, token.length-1)
   }
 
   isTokenValid(token: string) {
     const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
     return expiry * 1000 > Date.now();
   }
+
 
   getUserInfo(token: string): User {
     const parsedToken = (JSON.parse(atob(token.split('.')[1])))
@@ -57,6 +63,4 @@ export class AuthService {
       center: parsedToken.center || null,
     };
   }
-
-
 }

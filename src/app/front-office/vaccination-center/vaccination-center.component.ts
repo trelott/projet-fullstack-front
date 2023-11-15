@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {VaccinationCenter} from "../vaccination-center-list/vaccination-center";
+import {VaccinationCenter} from "../../interfaces/vaccination-center";
 import {ActivatedRoute} from "@angular/router";
-import {VaccinationService} from "../vaccination.service";
+import {VaccinationService} from "../../services/vaccination.service";
 
 @Component({
   selector: 'app-vaccination-center',

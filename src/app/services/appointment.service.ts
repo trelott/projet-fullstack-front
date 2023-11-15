@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Appointement} from "./appointment/appointement";
+import {Appointement} from "../interfaces/appointement";
 import {catchError, Observable} from "rxjs";
 
 @Injectable({
@@ -18,5 +18,13 @@ export class AppointmentService {
           throw error; // rethrow the error to propagate it to the component
         })
       );
+  }
+
+  getAppointmentByDate(selectedDate: Date) {
+    return this.httpClient.get<Appointement[]>("/api/user/appointment/date/" + selectedDate.toISOString());
+  }
+
+  patchAppointment(appointment: Appointement) {
+    return this.httpClient.patch<Appointement>("/api/user/appointment/" + appointment.id, appointment);
   }
 }

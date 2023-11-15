@@ -1,0 +1,12 @@
+<div id="edit-superadmin-body">
+  <form [formGroup]="editSuperadminForm">
+    <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
+    <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
+  </form>
+  <div id="superadmin-edit-button">
+    <button (click)="emitEditMemberDone(true)">Annuler</button>
+    <button (click)="modifyCenterMember()">Modifier</button>
+  </div>
+  <p *ngIf="showEditError">{{editErrorMessage}}</p>
+</div>

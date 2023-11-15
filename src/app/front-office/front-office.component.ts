@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-front-office',
@@ -8,6 +9,11 @@ import { Component } from '@angular/core';
     class: 'full-width'
   }
 })
-export class FrontOfficeComponent {
+export class FrontOfficeComponent implements OnInit{
+  constructor(private authService: AuthService) {
+  }
+  ngOnInit(): void {
+    if (this.authService.isTokenValid(this.authService.getStoredToken() || '')) this.authService.logout();
+  }
 
 }

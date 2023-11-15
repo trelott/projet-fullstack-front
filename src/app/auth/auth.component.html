@@ -3,7 +3,7 @@
   <div id="loginForm">
     <form [formGroup]="authForm">
       <input id="userName" type="text" formControlName="userName" placeholder="nom d'utilisateur">
-      <input id="password" type="text" formControlName="password" placeholder="mot de passe">
+      <input id="password" type="password" formControlName="password" placeholder="mot de passe">
     </form>
     <button (click)="login()">Connexion</button>
     <div class="message" id="formErrorMessage" *ngIf="invalidFormError">Veuillez renseigner tous les champs</div>

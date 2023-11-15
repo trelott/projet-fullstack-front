@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../auth/user";
+import {User} from "../interfaces/user";
 import {Router} from "@angular/router";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../services/auth.service";
+import {VaccinationService} from "../services/vaccination.service";
+import {VaccinationCenter} from "../interfaces/vaccination-center";
 
 @Component({
   selector: 'app-back-office',
@@ -13,6 +15,14 @@ import {AuthService} from "../auth.service";
 })
 export class BackOfficeComponent implements OnInit{
   loggedUser?: User;
+  selectedMenu?: string;
+  defaultCenter: VaccinationCenter = {
+    id: 0,
+    name: '',
+    address: '',
+    city: '',
+    city_code: 0,
+  }
 
   constructor(
     private router: Router,
@@ -25,6 +35,10 @@ export class BackOfficeComponent implements OnInit{
       this.loggedUser = this.authService.getUserInfo(token || '');
     }
     else this.authService.logout();
+  }
+
+  setSelectedMenu(newSelectedMenu: string) {
+    this.selectedMenu = newSelectedMenu;
   }
 
 }

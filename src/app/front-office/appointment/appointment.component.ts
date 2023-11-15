@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {VaccinationCenter} from "../vaccination-center-list/vaccination-center";
-import {AppointmentService} from "../appointment.service";
-import {Appointement} from "./appointement";
+import {VaccinationCenter} from "../../interfaces/vaccination-center";
+import {AppointmentService} from "../../services/appointment.service";
+import {Appointement} from "../../interfaces/appointement";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -21,8 +21,8 @@ export class AppointmentComponent implements OnInit {
 
   public ngOnInit() {
     this.appointmentForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      surname: new FormControl('', Validators.required),
+      firstname: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
       mail: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
@@ -33,7 +33,6 @@ export class AppointmentComponent implements OnInit {
   public confirmAppointment() {
     if (this.appointmentForm.valid){
       const appointment: Appointement = this.appointmentForm.value;
-      console.log(appointment);
       this.appointmentService.postAppointment(appointment).subscribe();
       this.showConfirmation = true;
       this.showError = false;

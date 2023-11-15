@@ -8,3 +8,26 @@ body {
 app-header {
   width: 100%;
 }
+
+#back-office {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#back-office_menu {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 10px;
+}
+
+#back-office_menu > button{
+  margin-bottom: 5px;
+}
+
+#back-office_body {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}

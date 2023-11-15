@@ -1,0 +1,19 @@
+<div id="menu-planning-body">
+  <div id="center-details">
+    <p>{{center.name}}</p>
+    <p>{{center.address}}, {{center.city}} {{center.city_code}}</p>
+  </div>
+  <div id="date-select">
+    <button (click)="setDatePreviousDay()" class="date-select-button" id="date-select-previous"> < </button>
+    <p id="date-display">{{ selectedDate | date:'EEEE d LLLL, y '}}</p>
+    <button (click)="setDateNextDay()" class="date-select-button" id="date-select-next"> > </button>
+  </div>
+  <input [(ngModel)]="searchInput" (input)="updateAppointmentSearch()" placeholder="Entrez le nom du patient">
+  <div id="appointment-list">
+    <div class="appointment-details" *ngFor="let appointment of filteredAppointmentList">
+      <p>{{ appointment.firstname }} {{ appointment.lastname }}</p>
+      <p id="appointment-valide" *ngIf="appointment.vaccinated">Validé</p>
+      <button (click)="validateAppointment(appointment)" *ngIf="!appointment.vaccinated">Valider</button>
+    </div>
+  </div>
+</div>

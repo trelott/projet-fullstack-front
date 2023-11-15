@@ -1,0 +1,28 @@
+<div id="manage-center-member-body">
+  <div *ngIf="!memberToModify && !addMember">
+    <table id="user-table">
+      <tr id="user-table-header">
+        <th *ngFor="let column of tableColumns">
+          {{column}}
+        </th>
+      </tr>
+      <tr id="user-table-body" *ngFor="let member of centerMember">
+        <td>{{member.id}}</td>
+        <td>{{member.firstname}} {{member.lastname}}</td>
+        <td>{{member.role}}</td>
+        <td>
+          <div class="actions-column">
+            <button (click)="setMemberToModify(member)">Modifier</button>
+            <button (click)="deleteMember(member)">Supprimer</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div id="manage-center-member-button">
+      <button (click)="cancelManageCenter()">Annuler</button>
+      <button (click)="setAddMember(true)">Ajouter un membre</button>
+    </div>
+  </div>
+  <app-edit-center-member *ngIf="memberToModify" [member]="memberToModify" [center]="center" [possibleRole]="possibleRole" [allCenters]="allCenters" (editMemberDone)="setMemberToModify(undefined); updateCenterMember()"></app-edit-center-member>
+  <app-create-center-member *ngIf="addMember" [possibleRole]="possibleRole" [center]="center" (createDone)="setAddMember(false); updateCenterMember()"></app-create-center-member>
+</div>

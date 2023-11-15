@@ -1,0 +1,13 @@
+<div id="create-superadmin-body">
+  <form [formGroup]="createSuperadminForm">
+    <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="password" type="text" formControlName="password" placeholder="mot de passe">
+    <input id="firstname" type="text" formControlName="firstname" placeholder="prénom">
+    <input id="lastname" type="text" formControlName="lastname" placeholder="nom">
+  </form>
+  <div id="create-superadmin-button">
+    <button (click)="emitCreateDone(true)">Annuler</button>
+    <button (click)="createSuperadmin()">Ajouter</button>
+  </div>
+  <p *ngIf="showCreateError">{{createErrorMessage}}</p>
+</div>
