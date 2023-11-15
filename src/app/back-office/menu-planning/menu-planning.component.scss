@@ -1,0 +1,47 @@
+#menu-planning-body {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#date-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#date-display {
+  width: 70%;
+  text-align: center;
+}
+
+.date-select-button {
+  width: 15%;
+}
+
+#appointment-valide {
+  color: green;
+}
+
+.appointment-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.appointment-details p {
+  padding: 10px;
+  font-size: 22px;
+}
+
+input {
+  margin-top: 10px;
+}
+
+

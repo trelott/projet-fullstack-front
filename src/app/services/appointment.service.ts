@@ -19,4 +19,12 @@ export class AppointmentService {
         })
       );
   }
+
+  getAppointmentByDate(selectedDate: Date) {
+    return this.httpClient.get<Appointement[]>("/api/user/appointment/date/" + selectedDate.toISOString());
+  }
+
+  patchAppointment(appointment: Appointement) {
+    return this.httpClient.patch<Appointement>("/api/user/appointment/" + appointment.id, appointment);
+  }
 }

@@ -29,7 +29,6 @@ export class CreateCentreComponent implements OnInit{
   }
 
   createCenter() {
-    console.debug('bonk');
     this.center = this.centerForm.value
     this.centerService.createCenter(this.center).subscribe({
       next: (response) => {

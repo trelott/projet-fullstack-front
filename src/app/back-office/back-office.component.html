@@ -3,15 +3,15 @@
   <div id="back-office">
     <div id="back-office_menu">
       <button *ngIf="loggedUser?.role === 'SUPERADMIN'" (click)="setSelectedMenu('centres')">Centres ></button>
-      <button *ngIf="loggedUser?.role === 'ADMIN' || loggedUser?.role === 'admin'"  (click)="setSelectedMenu('mon-centre')">Mon centre ></button>
-      <button *ngIf="loggedUser?.role === 'USER'" (click)="setSelectedMenu('planning')">Planning ></button>
       <button *ngIf="loggedUser?.role === 'SUPERADMIN'" (click)="setSelectedMenu('config')">Config ></button>
+      <button *ngIf="loggedUser?.role === 'ADMIN'" (click)="setSelectedMenu('mon-centre')">Mon centre ></button>
+      <button *ngIf="loggedUser?.role === 'USER' || loggedUser?.role === 'ADMIN'" (click)="setSelectedMenu('planning')">Planning ></button>
     </div>
     <div id="back-office_body">
       <app-menu-centres *ngIf="selectedMenu == 'centres'"></app-menu-centres>
-      <app-menu-mon-centre *ngIf="selectedMenu == 'mon-centre'" [center]="loggedUser?.center || defaultCenter"></app-menu-mon-centre>
-      <app-menu-planning *ngIf="selectedMenu == 'planning'"></app-menu-planning>
       <app-menu-config *ngIf="selectedMenu == 'config'"></app-menu-config>
+      <app-menu-mon-centre *ngIf="selectedMenu == 'mon-centre'" [center]="loggedUser?.center || defaultCenter"></app-menu-mon-centre>
+      <app-menu-planning *ngIf="selectedMenu == 'planning'" [center]="loggedUser?.center || defaultCenter"></app-menu-planning>
     </div>
   </div>
 </body>
