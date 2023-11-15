@@ -5,7 +5,7 @@
     <input id="firstname" type="text" formControlName="firstname" placeholder="prénom">
     <input id="lastname" type="text" formControlName="lastname" placeholder="nom">
     <select id="role" formControlName="role">
-      <option *ngFor="let role of possibleRole" [ngValue]="role" [selected]="role == 'USER'">
+      <option *ngFor="let role of possibleRole" [ngValue]="role">
         {{role}}
       </option>
     </select>

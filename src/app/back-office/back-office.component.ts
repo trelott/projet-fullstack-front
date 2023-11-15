@@ -3,6 +3,7 @@ import {User} from "../interfaces/user";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {VaccinationService} from "../services/vaccination.service";
+import {VaccinationCenter} from "../interfaces/vaccination-center";
 
 @Component({
   selector: 'app-back-office',
@@ -15,6 +16,13 @@ import {VaccinationService} from "../services/vaccination.service";
 export class BackOfficeComponent implements OnInit{
   loggedUser?: User;
   selectedMenu?: string;
+  defaultCenter: VaccinationCenter = {
+    id: 0,
+    name: '',
+    address: '',
+    city: '',
+    city_code: 0,
+  }
 
   constructor(
     private router: Router,

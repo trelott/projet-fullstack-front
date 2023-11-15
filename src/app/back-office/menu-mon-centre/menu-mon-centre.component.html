@@ -1,1 +1,9 @@
-<p>menu-mon-centre works!</p>
+<div id="menu-mon-centre-body">
+  <div id="center-details">
+    <p>{{center?.name}}</p>
+    <p>{{center?.address}}, {{center?.city}} {{center?.city_code}}</p>
+  </div>
+  <div id="manage-center-member">
+    <app-manage-center-member [center]="center" [allCenters]="[center]" (modificationDone)="setModifyCenterMember(undefined)" [maxPossibleRole]="'USER'"></app-manage-center-member>
+  </div>
+</div>

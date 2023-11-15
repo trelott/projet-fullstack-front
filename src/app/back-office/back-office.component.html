@@ -9,7 +9,7 @@
     </div>
     <div id="back-office_body">
       <app-menu-centres *ngIf="selectedMenu == 'centres'"></app-menu-centres>
-      <app-menu-mon-centre *ngIf="selectedMenu == 'mon-centre'"></app-menu-mon-centre>
+      <app-menu-mon-centre *ngIf="selectedMenu == 'mon-centre'" [center]="loggedUser?.center || defaultCenter"></app-menu-mon-centre>
       <app-menu-planning *ngIf="selectedMenu == 'planning'"></app-menu-planning>
       <app-menu-config *ngIf="selectedMenu == 'config'"></app-menu-config>
     </div>
