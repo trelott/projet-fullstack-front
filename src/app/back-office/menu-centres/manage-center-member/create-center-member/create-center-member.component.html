@@ -1,14 +1,19 @@
 <div id="create-center-member-body">
   <form [formGroup]="createCenterMemberForm">
     <input id="email" type="text" formControlName="email" placeholder="email">
+    <input id="password" type="text" formControlName="password" placeholder="mot de passe">
     <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
     <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
-    <input id="role" type="text" formControlName="role" placeholder="rôle">
-    <input id="center" type="text" formControlName="center" placeholder="centre">
+    <select id="role" formControlName="role">
+      <option *ngFor="let role of possibleRole" [ngValue]="role" [selected]="role == 'USER'">
+        {{role}}
+      </option>
+    </select>
   </form>
   <div id="create-center-member-button">
     <button (click)="emitCreateDone(true)">Annuler</button>
     <button (click)="createCenterMember()">Ajouter</button>
   </div>
+  <p *ngIf="showCreateError">{{createErrorMessage}}</p>
 </div>
 

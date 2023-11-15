@@ -27,7 +27,7 @@ export class UserInfoService {
     return this.httpClient.patch<User>("/api/admin/user/" + user.id, user);
   }
 
-  deleteUser(userId: number): Observable<User> {
+  deleteUser(userId?: number): Observable<User> {
     return this.httpClient.delete<User>("/api/admin/user/" + userId);
   }
 }

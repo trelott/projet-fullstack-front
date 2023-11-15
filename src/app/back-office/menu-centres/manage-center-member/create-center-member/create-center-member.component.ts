@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from "../../../../interfaces/user";
 import {FormControl, FormGroup} from "@angular/forms";
+import {VaccinationCenter} from "../../../../interfaces/vaccination-center";
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   selector: 'app-create-center-member',
@@ -9,9 +11,15 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class CreateCenterMemberComponent implements OnInit{
   @Output() createDone: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() possibleRole!: string[];
+  @Input() center!: VaccinationCenter;
   createCenterMemberForm!: FormGroup;
+  showCreateError: boolean = false;
+  createErrorMessage: string = "Il y a eu une erreur lors de la création de l'utilisateur";
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
     this.createCenterMemberForm = new FormGroup({
@@ -19,7 +27,7 @@ export class CreateCenterMemberComponent implements OnInit{
       firstname: new FormControl(''),
       lastname: new FormControl(''),
       role: new FormControl(''),
-      center: new FormControl(''),
+      password: new FormControl('')
     });
   }
 
@@ -28,6 +36,22 @@ export class CreateCenterMemberComponent implements OnInit{
   }
 
   createCenterMember() {
-    this.emitCreateDone(true);
+    const newMember: User = {
+      email: this.createCenterMemberForm.get("email")?.value,
+      password: this.createCenterMemberForm.get("password")?.value,
+      firstname: this.createCenterMemberForm.get("firstname")?.value,
+      lastname: this.createCenterMemberForm.get("lastname")?.value,
+      role: this.createCenterMemberForm.get("role")?.value,
+      center: this.center,
+    }
+    this.authService.register(newMember).subscribe({
+      next: value => {
+        this.showCreateError = false;
+        this.emitCreateDone(true);
+      },
+      error: err => {
+        this.showCreateError = true;
+      }
+    })
   }
 }

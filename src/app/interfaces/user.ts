@@ -1,10 +1,11 @@
 import {VaccinationCenter} from "./vaccination-center";
 
 export interface User {
-  id: number;
+  id?: number;
   email: string;
   firstname: string;
   lastname: string;
   role: string;
-  center: VaccinationCenter
+  center: VaccinationCenter;
+  password?: string;
 }

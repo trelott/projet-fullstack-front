@@ -20,6 +20,10 @@ export class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
+  register(newMember: User) {
+    return this.httpClient.post<AuthResponse>("/api/admin/register", newMember)
+  }
+
   login(username: string, password: string) {
     return this.httpClient.post<AuthResponse>("/api/public/auth", { username, password })
       .pipe(map((response) => {
@@ -47,6 +51,7 @@ export class AuthService {
     return expiry * 1000 > Date.now();
   }
 
+
   getUserInfo(token: string): User {
     const parsedToken = (JSON.parse(atob(token.split('.')[1])))
     return {
@@ -58,6 +63,4 @@ export class AuthService {
       center: parsedToken.center || null,
     };
   }
-
-
 }

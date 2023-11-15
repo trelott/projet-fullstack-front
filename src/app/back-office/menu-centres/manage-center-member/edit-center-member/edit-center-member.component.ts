@@ -17,6 +17,7 @@ export class EditCenterMemberComponent implements OnInit {
   @Input() possibleRole!: string[];
   showEditError: boolean = false;
   editErrorMessage: string = "Il y a eu une erreur lors de la modification de l'utilisateur";
+  @Input() center!: VaccinationCenter;
   constructor(
     private centerMemberService: UserInfoService,
   ) {}
@@ -35,16 +36,12 @@ export class EditCenterMemberComponent implements OnInit {
   }
 
   modifyCenterMember() {
-    console.log(JSON.stringify(this.editCenterMemberForm.get("center")?.value));
     const patchedMember: User = {
       id: this.member.id,
       email: this.editCenterMemberForm.get("email")?.value,
       firstname: this.editCenterMemberForm.get("firstname")?.value,
       lastname: this.editCenterMemberForm.get("lastname")?.value,
       role: this.editCenterMemberForm.get("role")?.value,
-      /*center: this.allCenters.filter(value => {
-        return value.name == this.editCenterMemberForm.get("center")?.value
-      }).pop() || this.member.center,*/
       center: this.editCenterMemberForm.get("center")?.value,
     }
     this.centerMemberService.patchUser(patchedMember).subscribe({

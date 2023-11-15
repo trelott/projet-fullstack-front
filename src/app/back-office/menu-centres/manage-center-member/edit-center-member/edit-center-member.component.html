@@ -4,12 +4,12 @@
     <input id="firstname" type="text" formControlName="firstname" placeholder="nom">
     <input id="lastname" type="text" formControlName="lastname" placeholder="prénom">
     <select id="role" formControlName="role">
-      <option *ngFor="let role of possibleRole" [value]="member.role">
+      <option *ngFor="let role of possibleRole" [ngValue]="role">
         {{role}}
       </option>
     </select>
     <select id="center" formControlName="center">
-      <option *ngFor="let selectCenter of allCenters" [value]="member.center">
+      <option *ngFor="let selectCenter of allCenters" [ngValue]="selectCenter" [selected]="selectCenter == center">
         {{selectCenter.name}}
       </option>
     </select>
